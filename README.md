@@ -23,7 +23,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "fiteco-group": "*@dev"
+    "fiteco-group/kimai-client": "*@dev"
   }
 }
 ```
