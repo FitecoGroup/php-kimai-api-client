@@ -1,7 +1,7 @@
 {
     "name": "fiteco-group/kimai-client",
     "version": "1.0.0",
-    "description": "JSON API for the Kimai 2 time-tracking software. Read more about its usage in the [API documentation](https://www.kimai.org/documentation/rest-api.html) and then download a [Swagger file](doc.json) for import e.g. in Postman. Be aware: it is not yet considered stable and BC breaks might happen, especially when using code generation. The order of JSON attributes is not guaranteed.",
+    "description": "Kimai V2 PHP Api client.",
     "keywords": [
         "openapitools",
         "openapi-generator",
