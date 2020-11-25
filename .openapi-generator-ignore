@@ -1,0 +1,7 @@
+git_push.sh
+.php_cs
+test
+phpunit.xml.dist
+.travis.yml
+README.md
+.gitignore
