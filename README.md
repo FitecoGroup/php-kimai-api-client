@@ -47,7 +47,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
+// Configure host on which Kimai is running
+$config = Fiteco\KimaiClient\Configuration::getDefaultConfiguration()->setHost('https://kimai.RememberToSetMe.com');
 
 // Configure API key authorization: apiToken
 $config = Fiteco\KimaiClient\Configuration::getDefaultConfiguration()->setApiKey('X-AUTH-TOKEN', 'YOUR_API_KEY');
