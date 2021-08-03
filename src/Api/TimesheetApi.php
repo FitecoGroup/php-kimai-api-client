@@ -309,7 +309,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -335,7 +335,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'GET',
@@ -829,7 +829,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -855,7 +855,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'GET',
@@ -1036,7 +1036,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -1062,7 +1062,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'DELETE',
@@ -1290,7 +1290,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -1316,7 +1316,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'PATCH',
@@ -1544,7 +1544,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -1570,7 +1570,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'PATCH',
@@ -1798,7 +1798,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -1824,7 +1824,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'GET',
@@ -2063,7 +2063,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -2089,7 +2089,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'PATCH',
@@ -2332,7 +2332,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -2358,7 +2358,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'PATCH',
@@ -2597,7 +2597,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -2623,7 +2623,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'PATCH',
@@ -2851,7 +2851,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -2877,7 +2877,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'PATCH',
@@ -3118,7 +3118,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -3144,7 +3144,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'POST',
@@ -3398,7 +3398,7 @@ class TimesheetApi
                 $httpBody = \GuzzleHttp\json_encode($formParams);
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -3424,7 +3424,7 @@ class TimesheetApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
 
         return new Request(
             'GET',
