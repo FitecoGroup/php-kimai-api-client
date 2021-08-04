@@ -60,6 +60,7 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'version'   => 'string',
+        'versionId' => 'int',
         'candidate' => 'string',
         'semver'    => 'string',
         'name'      => 'string',
@@ -75,6 +76,7 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'version'   => null,
+        'versionId' => null,
         'candidate' => null,
         'semver'    => null,
         'name'      => null,
@@ -109,6 +111,7 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'version'   => 'version',
+        'versionId' => 'versionId',
         'candidate' => 'candidate',
         'semver'    => 'semver',
         'name'      => 'name',
@@ -122,6 +125,7 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'version'   => 'setVersion',
+        'versionId' => 'setVersionId',
         'candidate' => 'setCandidate',
         'semver'    => 'setSemver',
         'name'      => 'setName',
@@ -135,6 +139,7 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'version'   => 'getVersion',
+        'versionId' => 'getVersionId',
         'candidate' => 'getCandidate',
         'semver'    => 'getSemver',
         'name'      => 'getName',
@@ -198,6 +203,7 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(array $data = null)
     {
         $this->container['version'] = $data['version'] ?? null;
+        $this->container['versionId'] = $data['versionId'] ?? null;
         $this->container['candidate'] = $data['candidate'] ?? null;
         $this->container['semver'] = $data['semver'] ?? null;
         $this->container['name'] = $data['name'] ?? null;
@@ -247,6 +253,30 @@ class Version implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setVersion($version)
     {
         $this->container['version'] = $version;
+
+        return $this;
+    }
+
+    /**
+     * Gets versionId.
+     *
+     * @return int|null
+     */
+    public function getVersionId()
+    {
+        return $this->container['versionId'];
+    }
+
+    /**
+     * Sets versionId.
+     *
+     * @param int|null $versionId Follows the same logic as PHP_VERSION_ID, see https://www.php.net/manual/de/function.phpversion.php
+     *
+     * @return self
+     */
+    public function setVersionId($versionId)
+    {
+        $this->container['versionId'] = $versionId;
 
         return $this;
     }
