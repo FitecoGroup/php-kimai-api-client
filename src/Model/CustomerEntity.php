@@ -389,8 +389,23 @@ class CustomerEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         if (null === $this->container['budget']) {
             $invalidProperties[] = "'budget' can't be null";
         }
+        if (($this->container['budget'] > 9E+11)) {
+            $invalidProperties[] = "invalid value for 'budget', must be smaller than or equal to 9E+11.";
+        }
+
+        if (($this->container['budget'] < 0)) {
+            $invalidProperties[] = "invalid value for 'budget', must be bigger than or equal to 0.";
+        }
+
         if (null === $this->container['timeBudget']) {
             $invalidProperties[] = "'timeBudget' can't be null";
+        }
+        if (($this->container['timeBudget'] > 2145600000)) {
+            $invalidProperties[] = "invalid value for 'timeBudget', must be smaller than or equal to 2145600000.";
+        }
+
+        if (($this->container['timeBudget'] < 0)) {
+            $invalidProperties[] = "invalid value for 'timeBudget', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -889,6 +904,13 @@ class CustomerEntity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setBudget($budget)
     {
+        if (($budget > 9E+11)) {
+            throw new \InvalidArgumentException('invalid value for $budget when calling CustomerEntity., must be smaller than or equal to 9E+11.');
+        }
+        if (($budget < 0)) {
+            throw new \InvalidArgumentException('invalid value for $budget when calling CustomerEntity., must be bigger than or equal to 0.');
+        }
+
         $this->container['budget'] = $budget;
 
         return $this;
@@ -913,6 +935,13 @@ class CustomerEntity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function setTimeBudget($timeBudget)
     {
+        if (($timeBudget > 2145600000)) {
+            throw new \InvalidArgumentException('invalid value for $timeBudget when calling CustomerEntity., must be smaller than or equal to 2145600000.');
+        }
+        if (($timeBudget < 0)) {
+            throw new \InvalidArgumentException('invalid value for $timeBudget when calling CustomerEntity., must be bigger than or equal to 0.');
+        }
+
         $this->container['timeBudget'] = $timeBudget;
 
         return $this;
