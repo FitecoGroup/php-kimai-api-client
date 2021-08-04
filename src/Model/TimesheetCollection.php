@@ -71,6 +71,8 @@ class TimesheetCollection implements ModelInterface, ArrayAccess, \JsonSerializa
         'description'  => 'string',
         'rate'         => 'float',
         'internalRate' => 'float',
+        'exported'     => 'bool',
+        'billable'     => 'bool',
         'metaFields'   => '\Fiteco\KimaiClient\Model\TimesheetMeta[]',
     ];
 
@@ -93,6 +95,8 @@ class TimesheetCollection implements ModelInterface, ArrayAccess, \JsonSerializa
         'description'  => null,
         'rate'         => 'float',
         'internalRate' => 'float',
+        'exported'     => null,
+        'billable'     => null,
         'metaFields'   => null,
     ];
 
@@ -134,6 +138,8 @@ class TimesheetCollection implements ModelInterface, ArrayAccess, \JsonSerializa
         'description'  => 'description',
         'rate'         => 'rate',
         'internalRate' => 'internalRate',
+        'exported'     => 'exported',
+        'billable'     => 'billable',
         'metaFields'   => 'metaFields',
     ];
 
@@ -154,6 +160,8 @@ class TimesheetCollection implements ModelInterface, ArrayAccess, \JsonSerializa
         'description'  => 'setDescription',
         'rate'         => 'setRate',
         'internalRate' => 'setInternalRate',
+        'exported'     => 'setExported',
+        'billable'     => 'setBillable',
         'metaFields'   => 'setMetaFields',
     ];
 
@@ -174,6 +182,8 @@ class TimesheetCollection implements ModelInterface, ArrayAccess, \JsonSerializa
         'description'  => 'getDescription',
         'rate'         => 'getRate',
         'internalRate' => 'getInternalRate',
+        'exported'     => 'getExported',
+        'billable'     => 'getBillable',
         'metaFields'   => 'getMetaFields',
     ];
 
@@ -244,6 +254,8 @@ class TimesheetCollection implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->container['description'] = $data['description'] ?? null;
         $this->container['rate'] = $data['rate'] ?? null;
         $this->container['internalRate'] = $data['internalRate'] ?? null;
+        $this->container['exported'] = $data['exported'] ?? null;
+        $this->container['billable'] = $data['billable'] ?? null;
         $this->container['metaFields'] = $data['metaFields'] ?? null;
     }
 
@@ -258,6 +270,12 @@ class TimesheetCollection implements ModelInterface, ArrayAccess, \JsonSerializa
 
         if (null === $this->container['begin']) {
             $invalidProperties[] = "'begin' can't be null";
+        }
+        if (null === $this->container['exported']) {
+            $invalidProperties[] = "'exported' can't be null";
+        }
+        if (null === $this->container['billable']) {
+            $invalidProperties[] = "'billable' can't be null";
         }
 
         return $invalidProperties;
@@ -534,6 +552,54 @@ class TimesheetCollection implements ModelInterface, ArrayAccess, \JsonSerializa
     public function setInternalRate($internalRate)
     {
         $this->container['internalRate'] = $internalRate;
+
+        return $this;
+    }
+
+    /**
+     * Gets exported.
+     *
+     * @return bool
+     */
+    public function getExported()
+    {
+        return $this->container['exported'];
+    }
+
+    /**
+     * Sets exported.
+     *
+     * @param bool $exported exported
+     *
+     * @return self
+     */
+    public function setExported($exported)
+    {
+        $this->container['exported'] = $exported;
+
+        return $this;
+    }
+
+    /**
+     * Gets billable.
+     *
+     * @return bool
+     */
+    public function getBillable()
+    {
+        return $this->container['billable'];
+    }
+
+    /**
+     * Sets billable.
+     *
+     * @param bool $billable billable
+     *
+     * @return self
+     */
+    public function setBillable($billable)
+    {
+        $this->container['billable'] = $billable;
 
         return $this;
     }

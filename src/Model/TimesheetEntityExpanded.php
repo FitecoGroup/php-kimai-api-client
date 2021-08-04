@@ -74,6 +74,7 @@ class TimesheetEntityExpanded implements ModelInterface, ArrayAccess, \JsonSeria
         'fixedRate'    => 'float',
         'hourlyRate'   => 'float',
         'exported'     => 'bool',
+        'billable'     => 'bool',
         'metaFields'   => '\Fiteco\KimaiClient\Model\TimesheetMeta[]',
     ];
 
@@ -99,6 +100,7 @@ class TimesheetEntityExpanded implements ModelInterface, ArrayAccess, \JsonSeria
         'fixedRate'    => 'float',
         'hourlyRate'   => 'float',
         'exported'     => null,
+        'billable'     => null,
         'metaFields'   => null,
     ];
 
@@ -143,6 +145,7 @@ class TimesheetEntityExpanded implements ModelInterface, ArrayAccess, \JsonSeria
         'fixedRate'    => 'fixedRate',
         'hourlyRate'   => 'hourlyRate',
         'exported'     => 'exported',
+        'billable'     => 'billable',
         'metaFields'   => 'metaFields',
     ];
 
@@ -166,6 +169,7 @@ class TimesheetEntityExpanded implements ModelInterface, ArrayAccess, \JsonSeria
         'fixedRate'    => 'setFixedRate',
         'hourlyRate'   => 'setHourlyRate',
         'exported'     => 'setExported',
+        'billable'     => 'setBillable',
         'metaFields'   => 'setMetaFields',
     ];
 
@@ -189,6 +193,7 @@ class TimesheetEntityExpanded implements ModelInterface, ArrayAccess, \JsonSeria
         'fixedRate'    => 'getFixedRate',
         'hourlyRate'   => 'getHourlyRate',
         'exported'     => 'getExported',
+        'billable'     => 'getBillable',
         'metaFields'   => 'getMetaFields',
     ];
 
@@ -262,6 +267,7 @@ class TimesheetEntityExpanded implements ModelInterface, ArrayAccess, \JsonSeria
         $this->container['fixedRate'] = $data['fixedRate'] ?? null;
         $this->container['hourlyRate'] = $data['hourlyRate'] ?? null;
         $this->container['exported'] = $data['exported'] ?? null;
+        $this->container['billable'] = $data['billable'] ?? null;
         $this->container['metaFields'] = $data['metaFields'] ?? null;
     }
 
@@ -285,6 +291,9 @@ class TimesheetEntityExpanded implements ModelInterface, ArrayAccess, \JsonSeria
         }
         if (null === $this->container['exported']) {
             $invalidProperties[] = "'exported' can't be null";
+        }
+        if (null === $this->container['billable']) {
+            $invalidProperties[] = "'billable' can't be null";
         }
 
         return $invalidProperties;
@@ -633,6 +642,30 @@ class TimesheetEntityExpanded implements ModelInterface, ArrayAccess, \JsonSeria
     public function setExported($exported)
     {
         $this->container['exported'] = $exported;
+
+        return $this;
+    }
+
+    /**
+     * Gets billable.
+     *
+     * @return bool
+     */
+    public function getBillable()
+    {
+        return $this->container['billable'];
+    }
+
+    /**
+     * Sets billable.
+     *
+     * @param bool $billable billable
+     *
+     * @return self
+     */
+    public function setBillable($billable)
+    {
+        $this->container['billable'] = $billable;
 
         return $this;
     }

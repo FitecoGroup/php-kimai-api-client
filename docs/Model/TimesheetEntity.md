@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **fixedRate** | **float** |  | [optional]
 **hourlyRate** | **float** |  | [optional]
 **exported** | **bool** |  |
+**billable** | **bool** |  |
 **metaFields** | [**\Fiteco\KimaiClient\Model\TimesheetMeta[]**](TimesheetMeta.md) | All visible meta (custom) fields registered with this timesheet | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

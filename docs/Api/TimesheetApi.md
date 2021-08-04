@@ -121,7 +121,7 @@ $activity = 'activity_example'; // string | DEPRECATED: Activity ID to filter ti
 $activities = 'activities_example'; // string | Comma separated list of activity IDs to filter timesheets
 $page = 'page_example'; // string | The page to display, renders a 404 if not found (default: 1)
 $size = 'size_example'; // string | The amount of entries for each page (default: 50)
-$tags = 'tags_example'; // string | The name of tags which are in the datasets
+$tags = 'tags_example'; // string | Comma separated list of tag names
 $orderBy = 'orderBy_example'; // string | The field by which results will be ordered. Allowed values: id, begin, end, rate (default: begin)
 $order = 'order_example'; // string | The result order. Allowed values: ASC, DESC (default: DESC)
 $begin = 'begin_example'; // \DateTime | Only records after this date will be included (format: HTML5)
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
  **activities** | **string**| Comma separated list of activity IDs to filter timesheets | [optional]
  **page** | **string**| The page to display, renders a 404 if not found (default: 1) | [optional]
  **size** | **string**| The amount of entries for each page (default: 50) | [optional]
- **tags** | **string**| The name of tags which are in the datasets | [optional]
+ **tags** | **string**| Comma separated list of tag names | [optional]
  **orderBy** | **string**| The field by which results will be ordered. Allowed values: id, begin, end, rate (default: begin) | [optional]
  **order** | **string**| The result order. Allowed values: ASC, DESC (default: DESC) | [optional]
  **begin** | **\DateTime**| Only records after this date will be included (format: HTML5) | [optional]

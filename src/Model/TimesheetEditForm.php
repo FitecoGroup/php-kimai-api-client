@@ -62,15 +62,15 @@ class TimesheetEditForm implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPITypes = [
         'begin'       => '\DateTime',
         'end'         => '\DateTime',
-        'duration'    => 'string',
         'project'     => 'int',
         'activity'    => 'int',
         'description' => 'string',
-        'tags'        => 'string',
         'fixedRate'   => 'float',
         'hourlyRate'  => 'float',
         'user'        => 'int',
         'exported'    => 'bool',
+        'billable'    => 'bool',
+        'tags'        => 'string',
     ];
 
     /**
@@ -83,15 +83,15 @@ class TimesheetEditForm implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $openAPIFormats = [
         'begin'       => 'date-time',
         'end'         => 'date-time',
-        'duration'    => null,
         'project'     => null,
         'activity'    => null,
         'description' => null,
-        'tags'        => null,
         'fixedRate'   => null,
         'hourlyRate'  => null,
         'user'        => null,
         'exported'    => null,
+        'billable'    => null,
+        'tags'        => null,
     ];
 
     /**
@@ -123,15 +123,15 @@ class TimesheetEditForm implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $attributeMap = [
         'begin'       => 'begin',
         'end'         => 'end',
-        'duration'    => 'duration',
         'project'     => 'project',
         'activity'    => 'activity',
         'description' => 'description',
-        'tags'        => 'tags',
         'fixedRate'   => 'fixedRate',
         'hourlyRate'  => 'hourlyRate',
         'user'        => 'user',
         'exported'    => 'exported',
+        'billable'    => 'billable',
+        'tags'        => 'tags',
     ];
 
     /**
@@ -142,15 +142,15 @@ class TimesheetEditForm implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $setters = [
         'begin'       => 'setBegin',
         'end'         => 'setEnd',
-        'duration'    => 'setDuration',
         'project'     => 'setProject',
         'activity'    => 'setActivity',
         'description' => 'setDescription',
-        'tags'        => 'setTags',
         'fixedRate'   => 'setFixedRate',
         'hourlyRate'  => 'setHourlyRate',
         'user'        => 'setUser',
         'exported'    => 'setExported',
+        'billable'    => 'setBillable',
+        'tags'        => 'setTags',
     ];
 
     /**
@@ -161,15 +161,15 @@ class TimesheetEditForm implements ModelInterface, ArrayAccess, \JsonSerializabl
     protected static $getters = [
         'begin'       => 'getBegin',
         'end'         => 'getEnd',
-        'duration'    => 'getDuration',
         'project'     => 'getProject',
         'activity'    => 'getActivity',
         'description' => 'getDescription',
-        'tags'        => 'getTags',
         'fixedRate'   => 'getFixedRate',
         'hourlyRate'  => 'getHourlyRate',
         'user'        => 'getUser',
         'exported'    => 'getExported',
+        'billable'    => 'getBillable',
+        'tags'        => 'getTags',
     ];
 
     /**
@@ -230,15 +230,15 @@ class TimesheetEditForm implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $this->container['begin'] = $data['begin'] ?? null;
         $this->container['end'] = $data['end'] ?? null;
-        $this->container['duration'] = $data['duration'] ?? null;
         $this->container['project'] = $data['project'] ?? null;
         $this->container['activity'] = $data['activity'] ?? null;
         $this->container['description'] = $data['description'] ?? null;
-        $this->container['tags'] = $data['tags'] ?? null;
         $this->container['fixedRate'] = $data['fixedRate'] ?? null;
         $this->container['hourlyRate'] = $data['hourlyRate'] ?? null;
         $this->container['user'] = $data['user'] ?? null;
         $this->container['exported'] = $data['exported'] ?? null;
+        $this->container['billable'] = $data['billable'] ?? null;
+        $this->container['tags'] = $data['tags'] ?? null;
     }
 
     /**
@@ -323,30 +323,6 @@ class TimesheetEditForm implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets duration.
-     *
-     * @return string|null
-     */
-    public function getDuration()
-    {
-        return $this->container['duration'];
-    }
-
-    /**
-     * Sets duration.
-     *
-     * @param string|null $duration duration
-     *
-     * @return self
-     */
-    public function setDuration($duration)
-    {
-        $this->container['duration'] = $duration;
-
-        return $this;
-    }
-
-    /**
      * Gets project.
      *
      * @return int
@@ -414,30 +390,6 @@ class TimesheetEditForm implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setDescription($description)
     {
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags.
-     *
-     * @return string|null
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags.
-     *
-     * @param string|null $tags Comma separated list of tags
-     *
-     * @return self
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
 
         return $this;
     }
@@ -534,6 +486,54 @@ class TimesheetEditForm implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function setExported($exported)
     {
         $this->container['exported'] = $exported;
+
+        return $this;
+    }
+
+    /**
+     * Gets billable.
+     *
+     * @return bool|null
+     */
+    public function getBillable()
+    {
+        return $this->container['billable'];
+    }
+
+    /**
+     * Sets billable.
+     *
+     * @param bool|null $billable billable
+     *
+     * @return self
+     */
+    public function setBillable($billable)
+    {
+        $this->container['billable'] = $billable;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags.
+     *
+     * @return string|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags.
+     *
+     * @param string|null $tags Comma separated list of tags
+     *
+     * @return self
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }
