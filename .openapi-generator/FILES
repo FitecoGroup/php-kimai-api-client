@@ -1,7 +1,3 @@
-.gitignore
-.php_cs
-.travis.yml
-README.md
 composer.json
 docs/Api/ActivityApi.md
 docs/Api/CustomerApi.md
@@ -32,6 +28,7 @@ docs/Model/InlineObject1.md
 docs/Model/InlineObject2.md
 docs/Model/InlineObject3.md
 docs/Model/InlineObject4.md
+docs/Model/Plugin.md
 docs/Model/Project.md
 docs/Model/ProjectCollection.md
 docs/Model/ProjectEditForm.md
@@ -59,8 +56,6 @@ docs/Model/UserCreateForm.md
 docs/Model/UserEditForm.md
 docs/Model/UserEntity.md
 docs/Model/Version.md
-git_push.sh
-phpunit.xml.dist
 src/Api/ActivityApi.php
 src/Api/CustomerApi.php
 src/Api/DefaultApi.php
@@ -94,6 +89,7 @@ src/Model/InlineObject2.php
 src/Model/InlineObject3.php
 src/Model/InlineObject4.php
 src/Model/ModelInterface.php
+src/Model/Plugin.php
 src/Model/Project.php
 src/Model/ProjectCollection.php
 src/Model/ProjectEditForm.php
