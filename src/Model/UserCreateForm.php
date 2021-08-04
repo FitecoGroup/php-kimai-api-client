@@ -344,7 +344,8 @@ class UserCreateForm implements ModelInterface, ArrayAccess, \JsonSerializable
         $allowedValues = $this->getLanguageAllowableValues();
         if (null !== $this->container['language'] && !\in_array($this->container['language'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'language', must be one of '%s'",
+                "invalid value '%s' for 'language', must be one of '%s'",
+                $this->container['language'],
                 implode("', '", $allowedValues)
             );
         }
@@ -511,7 +512,7 @@ class UserCreateForm implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $allowedValues = $this->getLanguageAllowableValues();
         if (!\in_array($language, $allowedValues, true)) {
-            throw new \InvalidArgumentException(sprintf("Invalid value for 'language', must be one of '%s'", implode("', '", $allowedValues)));
+            throw new \InvalidArgumentException(sprintf("Invalid value '%s' for 'language', must be one of '%s'", $language, implode("', '", $allowedValues)));
         }
         $this->container['language'] = $language;
 
