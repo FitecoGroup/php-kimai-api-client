@@ -1,6 +1,5 @@
 {
     "name": "fiteco-group/kimai-client",
-    "version": "1.0.0",
     "description": "Kimai V2 PHP Api client.",
     "keywords": [
         "openapitools",
