@@ -708,7 +708,7 @@ class TimesheetCollectionExpanded implements ModelInterface, ArrayAccess, \JsonS
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            \JSON_PRETTY_PRINT
         );
     }
 

@@ -702,7 +702,7 @@ class TimesheetCollection implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         return json_encode(
             ObjectSerializer::sanitizeForSerialization($this),
-            JSON_PRETTY_PRINT
+            \JSON_PRETTY_PRINT
         );
     }
 
