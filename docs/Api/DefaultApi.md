@@ -1,12 +1,13 @@
 # Fiteco\KimaiClient\DefaultApi
 
-All URIs are relative to https://tt.fiteco.fi:443.
+All URIs are relative to http://localhost.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**apiConfigI18nGet()**](DefaultApi.md#apiConfigI18nGet) | **GET** /api/config/i18n | Returns the user specific locale configuration
 [**apiConfigTimesheetGet()**](DefaultApi.md#apiConfigTimesheetGet) | **GET** /api/config/timesheet | Returns the timesheet configuration
 [**apiPingGet()**](DefaultApi.md#apiPingGet) | **GET** /api/ping | A testing route for the API
+[**apiPluginsGet()**](DefaultApi.md#apiPluginsGet) | **GET** /api/plugins | Returns information about installed Plugins
 [**apiVersionGet()**](DefaultApi.md#apiVersionGet) | **GET** /api/version | Returns information about the Kimai release
 
 

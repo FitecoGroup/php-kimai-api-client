@@ -1,6 +1,6 @@
 # Fiteco\KimaiClient\ActivityApi
 
-All URIs are relative to https://tt.fiteco.fi:443.
+All URIs are relative to http://localhost.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
