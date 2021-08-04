@@ -209,14 +209,17 @@ class UserCreateForm implements ModelInterface, ArrayAccess, \JsonSerializable
 
     const LANGUAGE_AR = 'ar';
     const LANGUAGE_CS = 'cs';
-    const LANGUAGE_DE = 'de';
-    const LANGUAGE_DE_CH = 'de_CH';
     const LANGUAGE_DA = 'da';
+    const LANGUAGE_DE = 'de';
+    const LANGUAGE_DE_AT = 'de_AT';
+    const LANGUAGE_DE_CH = 'de_CH';
+    const LANGUAGE_EL = 'el';
     const LANGUAGE_EN = 'en';
     const LANGUAGE_EO = 'eo';
     const LANGUAGE_ES = 'es';
     const LANGUAGE_EU = 'eu';
     const LANGUAGE_FI = 'fi';
+    const LANGUAGE_FO = 'fo';
     const LANGUAGE_FR = 'fr';
     const LANGUAGE_HE = 'he';
     const LANGUAGE_HU = 'hu';
@@ -225,6 +228,7 @@ class UserCreateForm implements ModelInterface, ArrayAccess, \JsonSerializable
     const LANGUAGE_KO = 'ko';
     const LANGUAGE_NL = 'nl';
     const LANGUAGE_PL = 'pl';
+    const LANGUAGE_PT = 'pt';
     const LANGUAGE_PT_BR = 'pt_BR';
     const LANGUAGE_RO = 'ro';
     const LANGUAGE_RU = 'ru';
@@ -247,14 +251,17 @@ class UserCreateForm implements ModelInterface, ArrayAccess, \JsonSerializable
         return [
             self::LANGUAGE_AR,
             self::LANGUAGE_CS,
-            self::LANGUAGE_DE,
-            self::LANGUAGE_DE_CH,
             self::LANGUAGE_DA,
+            self::LANGUAGE_DE,
+            self::LANGUAGE_DE_AT,
+            self::LANGUAGE_DE_CH,
+            self::LANGUAGE_EL,
             self::LANGUAGE_EN,
             self::LANGUAGE_EO,
             self::LANGUAGE_ES,
             self::LANGUAGE_EU,
             self::LANGUAGE_FI,
+            self::LANGUAGE_FO,
             self::LANGUAGE_FR,
             self::LANGUAGE_HE,
             self::LANGUAGE_HU,
@@ -263,6 +270,7 @@ class UserCreateForm implements ModelInterface, ArrayAccess, \JsonSerializable
             self::LANGUAGE_KO,
             self::LANGUAGE_NL,
             self::LANGUAGE_PL,
+            self::LANGUAGE_PT,
             self::LANGUAGE_PT_BR,
             self::LANGUAGE_RO,
             self::LANGUAGE_RU,
