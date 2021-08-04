@@ -92,7 +92,7 @@ class ActivityApi
      *
      * @param int $hostIndex Host index (required)
      */
-    public function setHostIndex($hostIndex)
+    public function setHostIndex($hostIndex): void
     {
         $this->hostIndex = $hostIndex;
     }
@@ -170,22 +170,21 @@ class ActivityApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
             }
 
             $statusCode = $response->getStatusCode();
 
             if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
             }
 
-            $responseBody = $response->getBody();
             switch ($statusCode) {
                 case 200:
                     if ('\Fiteco\KimaiClient\Model\ActivityCollection[]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -196,11 +195,10 @@ class ActivityApi
             }
 
             $returnType = '\Fiteco\KimaiClient\Model\ActivityCollection[]';
-            $responseBody = $response->getBody();
             if ('\SplFileObject' === $returnType) {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
             }
 
             return [
@@ -280,11 +278,10 @@ class ActivityApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ('\SplFileObject' === $returnType) {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -297,7 +294,7 @@ class ActivityApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
                 }
             );
     }
@@ -519,22 +516,21 @@ class ActivityApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
             }
 
             $statusCode = $response->getStatusCode();
 
             if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
             }
 
-            $responseBody = $response->getBody();
             switch ($statusCode) {
                 case 200:
                     if ('\Fiteco\KimaiClient\Model\ActivityEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -545,11 +541,10 @@ class ActivityApi
             }
 
             $returnType = '\Fiteco\KimaiClient\Model\ActivityEntity';
-            $responseBody = $response->getBody();
             if ('\SplFileObject' === $returnType) {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
             }
 
             return [
@@ -615,11 +610,10 @@ class ActivityApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ('\SplFileObject' === $returnType) {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -632,7 +626,7 @@ class ActivityApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
                 }
             );
     }
@@ -778,22 +772,21 @@ class ActivityApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
             }
 
             $statusCode = $response->getStatusCode();
 
             if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
             }
 
-            $responseBody = $response->getBody();
             switch ($statusCode) {
                 case 200:
                     if ('\Fiteco\KimaiClient\Model\ActivityEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -804,11 +797,10 @@ class ActivityApi
             }
 
             $returnType = '\Fiteco\KimaiClient\Model\ActivityEntity';
-            $responseBody = $response->getBody();
             if ('\SplFileObject' === $returnType) {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
             }
 
             return [
@@ -876,11 +868,10 @@ class ActivityApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ('\SplFileObject' === $returnType) {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -893,7 +884,7 @@ class ActivityApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
                 }
             );
     }
@@ -1046,22 +1037,21 @@ class ActivityApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
             }
 
             $statusCode = $response->getStatusCode();
 
             if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
             }
 
-            $responseBody = $response->getBody();
             switch ($statusCode) {
                 case 200:
                     if ('\Fiteco\KimaiClient\Model\ActivityEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -1072,11 +1062,10 @@ class ActivityApi
             }
 
             $returnType = '\Fiteco\KimaiClient\Model\ActivityEntity';
-            $responseBody = $response->getBody();
             if ('\SplFileObject' === $returnType) {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
             }
 
             return [
@@ -1144,11 +1133,10 @@ class ActivityApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ('\SplFileObject' === $returnType) {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -1161,7 +1149,7 @@ class ActivityApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
                 }
             );
     }
@@ -1316,22 +1304,21 @@ class ActivityApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
             }
 
             $statusCode = $response->getStatusCode();
 
             if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
             }
 
-            $responseBody = $response->getBody();
             switch ($statusCode) {
                 case 200:
                     if ('\Fiteco\KimaiClient\Model\ActivityRate[]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -1342,11 +1329,10 @@ class ActivityApi
             }
 
             $returnType = '\Fiteco\KimaiClient\Model\ActivityRate[]';
-            $responseBody = $response->getBody();
             if ('\SplFileObject' === $returnType) {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
             }
 
             return [
@@ -1412,11 +1398,10 @@ class ActivityApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ('\SplFileObject' === $returnType) {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -1429,7 +1414,7 @@ class ActivityApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
                 }
             );
     }
@@ -1575,22 +1560,21 @@ class ActivityApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
             }
 
             $statusCode = $response->getStatusCode();
 
             if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
             }
 
-            $responseBody = $response->getBody();
             switch ($statusCode) {
                 case 200:
                     if ('\Fiteco\KimaiClient\Model\ActivityRate' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -1601,11 +1585,10 @@ class ActivityApi
             }
 
             $returnType = '\Fiteco\KimaiClient\Model\ActivityRate';
-            $responseBody = $response->getBody();
             if ('\SplFileObject' === $returnType) {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
             }
 
             return [
@@ -1673,11 +1656,10 @@ class ActivityApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ('\SplFileObject' === $returnType) {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -1690,7 +1672,7 @@ class ActivityApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
                 }
             );
     }
@@ -1845,13 +1827,13 @@ class ActivityApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
             }
 
             $statusCode = $response->getStatusCode();
 
             if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
             }
 
             return [null, $statusCode, $response->getHeaders()];
@@ -1905,14 +1887,14 @@ class ActivityApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function ($response) use ($returnType) {
+                function ($response) {
                     return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
                 }
             );
     }
@@ -2069,22 +2051,21 @@ class ActivityApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
+                throw new ApiException("[{$e->getCode()}] {$e->getMessage()}", (int) $e->getCode(), $e->getResponse() ? $e->getResponse()->getHeaders() : null, $e->getResponse() ? (string) $e->getResponse()->getBody() : null);
             }
 
             $statusCode = $response->getStatusCode();
 
             if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $request->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, (string) $request->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
             }
 
-            $responseBody = $response->getBody();
             switch ($statusCode) {
                 case 200:
                     if ('\Fiteco\KimaiClient\Model\ActivityEntity' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -2095,11 +2076,10 @@ class ActivityApi
             }
 
             $returnType = '\Fiteco\KimaiClient\Model\ActivityEntity';
-            $responseBody = $response->getBody();
             if ('\SplFileObject' === $returnType) {
-                $content = $responseBody; //stream goes to serializer
+                $content = $response->getBody(); //stream goes to serializer
             } else {
-                $content = (string) $responseBody;
+                $content = (string) $response->getBody();
             }
 
             return [
@@ -2165,11 +2145,10 @@ class ActivityApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
                     if ('\SplFileObject' === $returnType) {
-                        $content = $responseBody; //stream goes to serializer
+                        $content = $response->getBody(); //stream goes to serializer
                     } else {
-                        $content = (string) $responseBody;
+                        $content = (string) $response->getBody();
                     }
 
                     return [
@@ -2182,7 +2161,7 @@ class ActivityApi
                     $response = $exception->getResponse();
                     $statusCode = $response->getStatusCode();
 
-                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), $response->getBody());
+                    throw new ApiException(sprintf('[%d] Error connecting to the API (%s)', $statusCode, $exception->getRequest()->getUri()), $statusCode, $response->getHeaders(), (string) $response->getBody());
                 }
             );
     }

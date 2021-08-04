@@ -474,8 +474,8 @@ class Configuration
         $hosts = $this->getHostSettings();
 
         // check array index out of bound
-        if ($index < 0 || $index >= count($hosts)) {
-            throw new \InvalidArgumentException("Invalid index $index when selecting the host. Must be less than ".count($hosts));
+        if ($index < 0 || $index >= \count($hosts)) {
+            throw new \InvalidArgumentException("Invalid index $index when selecting the host. Must be less than ".\count($hosts));
         }
 
         $host = $hosts[$index];
