@@ -379,14 +379,14 @@ class ProjectApi
             $start = ObjectSerializer::serializeCollection($start, '', true);
         }
         if (null !== $start) {
-            $queryParams['start'] = $start;
+            $queryParams['start'] = ObjectSerializer::toString($start);
         }
         // query params
         if (\is_array($end)) {
             $end = ObjectSerializer::serializeCollection($end, '', true);
         }
         if (null !== $end) {
-            $queryParams['end'] = $end;
+            $queryParams['end'] = ObjectSerializer::toString($end);
         }
         // query params
         if (\is_array($ignoreDates)) {
