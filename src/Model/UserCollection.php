@@ -2,10 +2,10 @@
 
 /**
  *
- * Kimai API Client 2020 — NOTICE OF LICENSE
+ * Kimai API Client 2021 — NOTICE OF LICENSE
  * This source file is released under MIT license by copyright holders.
- * @copyright 2017-2020 (c) Niko Granö (https://granö.fi)
- * @copyright 2014-2020 (c) Fiteco Group Oy (https://group.fiteco.fi)
+ * @copyright 2017-2021 (c) Niko Granö (https://granö.fi)
+ * @copyright 2014-2021 (c) Fiteco Group Oy (https://group.fiteco.fi)
  *
  */
 
