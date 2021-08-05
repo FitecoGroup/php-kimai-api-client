@@ -754,14 +754,14 @@ class TimesheetApi
             $begin = ObjectSerializer::serializeCollection($begin, '', true);
         }
         if (null !== $begin) {
-            $queryParams['begin'] = $begin;
+            $queryParams['begin'] = ObjectSerializer::toString($begin);
         }
         // query params
         if (\is_array($end)) {
             $end = ObjectSerializer::serializeCollection($end, '', true);
         }
         if (null !== $end) {
-            $queryParams['end'] = $end;
+            $queryParams['end'] = ObjectSerializer::toString($end);
         }
         // query params
         if (\is_array($exported)) {
@@ -796,7 +796,7 @@ class TimesheetApi
             $modifiedAfter = ObjectSerializer::serializeCollection($modifiedAfter, '', true);
         }
         if (null !== $modifiedAfter) {
-            $queryParams['modified_after'] = $modifiedAfter;
+            $queryParams['modified_after'] = ObjectSerializer::toString($modifiedAfter);
         }
 
         if ($multipart) {

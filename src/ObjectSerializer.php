@@ -41,7 +41,7 @@ use Fiteco\KimaiClient\Model\ModelInterface;
 class ObjectSerializer
 {
     /** @var string */
-    private static $dateTimeFormat = \DateTime::ATOM;
+    private static $dateTimeFormat = 'Y-m-d\TH:i:s';
 
     /**
      * Change the date format.
